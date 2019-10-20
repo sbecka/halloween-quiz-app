@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+.links-wireframe {
+    font-size: medium;
+    text-align: left;
+}
+
 main {
     width: 400px;
     height: 750px;
