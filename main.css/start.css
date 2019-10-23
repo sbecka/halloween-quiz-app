@@ -4,7 +4,7 @@
 
 main {
     width: 400px;
-    height: 600px;
+    max-height: 750px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -17,15 +17,24 @@ h1 {
     font-size: 45px;
 }
 
-h2 {
+.start-page-content {
+    width: 350px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quiz-description {
     margin: 20px 20px;
     padding: 0 10px;
     border: 1px solid black;
-    
 }
 
 img {
     width: 200px;
+    align-self: center;
 }
 
 button {
@@ -33,4 +42,83 @@ button {
     width: 200px;
     height: 50px;
     font-size: 30px;
+}
+
+.question-number-and-score {
+    display: flex;
+    justify-content: space-between;
+    width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.question-number {
+    width: 50%;
+    margin: 20px 0;
+    display: inline-block;
+}
+
+.score {
+    text-align: right;
+    width: 48%;
+    margin: 20px 0;
+    display: inline-block;
+}
+
+form {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 500px;
+    width: 310px;
+}
+
+form > h2 {
+    border: 1px solid black;
+}
+
+.right-wrong-answer-page {
+    align-items: center;
+}
+
+legend {
+    font-size: x-large;
+    text-align: center;
+}
+
+fieldset {
+    width: 370px;
+    height: 300px;
+    margin: 0;
+    border: 0;
+}
+
+.container {
+    width: 340px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;    
+    justify-content: space-around;
+}
+
+.answers {
+    width: 50%;
+}
+
+label {
+    font-size: x-large;
+}
+
+.submit-button, .next-button {
+    align-self: center;
+    width: 200px;
+    height: 50px;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.comment {
+    font-size: x-large;
+    text-align: center;
 }

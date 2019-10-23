@@ -93,7 +93,7 @@ label {
     font-size: x-large;
 }
 
-button {
+.submit-button {
     align-self: center;
     width: 200px;
     height: 50px;

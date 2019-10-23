@@ -1,3 +1,5 @@
+"use strict";
+
 const STORE = [
     //1/10
     {
@@ -60,73 +62,126 @@ const STORE = [
         rightAnswer: "Protection from evil spirits that come out at night"
     },    
 ];
+//Functions Below
 
-function generateQuestionAndAnswers() {
-    $("header").append(`<section class="question-number-and-score">
-        <h2 class="question-number js-question-number">Question: 1/10</h2>
-        <h2 class="score js-score">Score: 0/10</h2>
+let questionNumber = 1;
+
+function updateQuestionNumber() {
+    //call this function or increase question number by 1 when Next button is clicked
+    questionNumber += 1;
+    console.log(questionNumber);
+};
+
+let overallScore = 0;
+
+function updateScore() {
+    //increase by 1 for right answer
+    overallScore += 1;
+    console.log(overallScore);
+};
+
+function generateQuestionNumberAndScore() {
+    $("header").append(`
+    <section class="question-number-and-score">
+        <h2 class="question-number js-question-number">Question: ${questionNumber}/10</h2>
+        <h2 class="score js-score">Score: ${overallScore}/10</h2>
     </section>`);
-    $("main").append(`<form action="" method="POST">
-            <p class="current-question js-current-question">Question question question?</p>
-            <fieldset>
-                <section class="container" role="contentinfo">
-                    <div class="answers"> 
-                        <input type="radio" id="answer1">
-                        <label for="answer1">Answer 1</label>
-                    </div>
-                    <div class="answers">
-                        <input type="radio" id="answer2">
-                        <label for="answer1">Answer 2</label>
-                    </div>
-                    <div class="answers">
-                        <input type="radio" id="answer3">
-                        <label for="answer1">Answer 3</label>
-                    </div>
-                    <div class="answers">
-                        <input type="radio" id="answer4">
-                        <label for="answer1">Answer 4</label>
-                    </div>
-                </section>
-            </fieldset>
-            <button type="submit" role="button">Submit</button>
-        </form>`);
+};
+
+let currentObject = STORE[0];
+
+function generateQuestionAndAnswersForm() {
+
+    let currentQuestion = currentObject.question;
+
+    $("main").append(`
+            <form id="js-question-page">
+                <legend class="current-question js-current-question">${currentQuestion}</legend>
+                <fieldset>
+                    <section class="container js-container" role="contentinfo">
+                    </section>
+                </fieldset>
+                <button class="submit-button js-submit-button" type="submit" role="button">Submit</button>
+            </form>`);
+    
+    for (let i = 0; i < currentObject.answers.length; i++) {
+        $(".js-container").append(`
+            <div class="answers"> 
+                <input type="radio" name="answer" id="answer${i+1}" value="answer${i+1}"required>
+                <label for="answer${i+1}">${currentObject.answers[i]}</label>
+            </div>`);
+    };
 };
 
 function startQuiz() {
     console.log('startQuiz ran');
     $('.js-start-button').on("click", function(){
-        $('.js-quiz-description').hide();
-        $('.js-start-image').hide();
-        $('.js-start-button').hide();
-        console.log(generateQuestionAndAnswers());
-        
-        
+        $('.js-start-page-content').hide();
+        generateQuestionNumberAndScore();
+        generateQuestionAndAnswersForm(currentObject);
     });
-    //When start button is clicked...
-    //should generate first question
-    //question number should start at 1.
-    //score starts at 0
-    //question with radio button answers
-}
+};
+
+function generateRightOrWrongAnswerPage() {
+    
+    let radioValue = $("input[name=answer]:checked").val();
+
+    let userAnswer = $(`label[for=${radioValue}]`).text();
+
+    let rightOrWrong = null;
+    let commentOnAnswer = null;
+    let pumpkinImage = null;
+    let altText = null;
+
+    if (userAnswer === currentObject.rightAnswer) {
+
+        rightOrWrong = 'Right Answer!';
+        commentOnAnswer = 'Nice job!';
+        pumpkinImage = 'happy-pumpkins.jpg';
+        altText = 'Happy'
+        updateScore(overallScore);
+        $('.js-score').text(`Score: ${overallScore}/10`);
+
+    } else {
+
+        rightOrWrong = 'Wrong Answer!';
+        commentOnAnswer = `The right answer is: ${currentObject.rightAnswer}.`;
+        pumpkinImage = 'sadpumpkins.jpg';
+        altText = 'Sad'
+    };
+
+    $('main').append(`
+    <form class="right-or-wrong-page">
+        <legend>${rightOrWrong}</legend>
+        <img src="images/${pumpkinImage}" alt="${altText} Jack-o'-lanterns">
+        <p class="comment js-comment">${commentOnAnswer}</p>
+        <button type="button" class="next-button js-next-button" role="button">Next</button>
+    </form>`);
+};
 
 function submitAnswer() {
-    console.log('submitAnswer ran');
-    //should submit the answer and generate a text 'right or wrong answer!' on screen
+    console.log(`submitAnswer ran`);
+    $('main').submit(function(event) {
+        event.preventDefault();
+        $('#js-question-page').hide();
+        generateRightOrWrongAnswerPage();
+    });
+};
+    //we need to focus on the input being selected
+    //should submit form's answer and generate a text 'right or wrong answer!' on screen
     //Right Answer: Updates score by 1 and displays happy image
     //Wrong Answer: Displays sad image and the right answer
-}
-
 function nextQuestion() {
     console.log('nextQuestion ran');
     //should generate the next question with answers
     //updates question number and displays current score
     //after the last question #10, the final score should be generated with a comment based on the final score earned
-}
+};
 
 function restartQuiz() {
     console.log('restartQuiz ran');
     //should generate the start page
-}
+};
 
 
 //calls and runs the functions
@@ -135,6 +190,6 @@ function createHalloweenQuiz() {
     submitAnswer();
     nextQuestion();
     restartQuiz();
-}
+};
 
 $(createHalloweenQuiz);

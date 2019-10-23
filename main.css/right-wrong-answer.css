@@ -37,19 +37,17 @@ h1 {
     margin-right: auto;
 }
 
-h2 {
-    margin: 20px 0;
-    display: inline-block;
-   
-}
-
 .question-number {
     max-width: 52%;
+    margin: 20px 0;
+    display: inline-block;
 }
 
 .score {
     text-align: right;
     max-width: 40%;
+    margin: 20px 0;
+    display: inline-block;
 }
 
 form {
