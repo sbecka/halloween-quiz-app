@@ -82,20 +82,20 @@ form > h2 {
     align-items: center;
 }
 
-legend {
+legend, .user-final-score {
     font-size: x-large;
     text-align: center;
 }
 
 fieldset {
-    width: 370px;
+    min-width: 308px;
     height: 300px;
     margin: 0;
     border: 0;
 }
 
 .container {
-    width: 340px;
+    min-width: 310px;
     height: 280px;
     display: flex;
     flex-direction: column;    
@@ -103,14 +103,14 @@ fieldset {
 }
 
 .answers {
-    width: 50%;
+    width: 100%;
 }
 
 label {
     font-size: x-large;
 }
 
-.submit-button, .next-button {
+.submit-button, .next-button, .restart-button {
     align-self: center;
     width: 200px;
     height: 50px;
@@ -118,7 +118,7 @@ label {
     margin-bottom: 20px;
 }
 
-.comment {
+.comment, .final-comment {
     font-size: x-large;
     text-align: center;
 }
