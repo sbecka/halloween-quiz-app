@@ -3,7 +3,7 @@
 }
 
 body {
-    background-image: url('/images/quiz-background.jpg');
+    background-image: url('../images/quiz-background.jpg');
     background-size: 300px;
     margin: 0;
 }
