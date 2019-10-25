@@ -146,15 +146,15 @@ function generateRightOrWrongAnswerPage() {
 
     let rightOrWrong = null;
     let commentOnAnswer = null;
-    let pumpkinImage = null;
+    let whichImage = null;
     let altText = null;
 
     if (userAnswer === STORE[storeIndex].rightAnswer) {
         //right answer
         rightOrWrong = 'Right Answer!';
-        commentOnAnswer = "Nice job! You're bootiful!";
-        pumpkinImage = 'happy-pumpkins.jpg';
-        altText = 'Happy'
+        commentOnAnswer = "Spooktacular job!";
+        whichImage = 'happy-ghost.png';
+        altText = 'Happy smiling cartoon ghost.'
         updateScore(overallScore);
         $('.js-score').text(`Score: ${overallScore}/10`);
 
@@ -162,14 +162,14 @@ function generateRightOrWrongAnswerPage() {
         //wrong answer
         rightOrWrong = 'Wrong Answer!';
         commentOnAnswer = `The right answer is:<br>${STORE[storeIndex].rightAnswer}`;
-        pumpkinImage = 'sadpumpkins.jpg';
-        altText = 'Sad'
+        whichImage = 'sadpumpkins.jpg';
+        altText = "Two sad jack-o'-lantern pumpkins."
     };
 
     $('main').append(`
     <form id="js-right-or-wrong-page">
         <legend>${rightOrWrong}</legend>
-        <img class="jack-o-lantern-pictures" src="images/${pumpkinImage}" alt="Two ${altText} Jack-o'-lantern Pumpkins" role="img">
+        <img class="ghost-pumpkin-pictures" src="images/${whichImage}" alt="${altText}" role="img">
         <p class="comment js-comment">${commentOnAnswer}</p>
         <button type="button" class="next-button js-next-button" role="button">Next</button>
     </form>`);
