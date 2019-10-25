@@ -1,0 +1,310 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('/images/quiz-background.jpg');
+    background-size: 300px;
+    margin: 0;
+}
+
+main {
+    background-color: #e04e25;
+    border: 5px solid black;
+    border-radius: 10px;
+    width: 320px;
+    max-height: 950px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 50px auto;
+    
+}
+
+header {
+    width: 98%;
+}
+
+h1 {
+    font-family: 'Crimson Text', 'Times New Roman', Times, serif;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    width: 100%;
+}
+
+/*****Starting Page*****/
+
+.start-page-content {
+    height: 500px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quiz-description {
+    background-color: #fefefe;
+    border-radius: 10px;
+    font-family: 'Palanquin', Arial, Helvetica, sans-serif;
+    font-size: 1.35em;
+    font-weight: 600;
+    line-height: 30px;
+    margin: 20px 20px;
+    width: 300px;
+    padding: 0 10px 5px;
+}
+
+.start-image {
+    max-width: 290px;
+    border-radius: 10px;
+}
+
+img {
+    align-self: center;
+}
+
+/**Question Pages and Final Score Page**/
+.question-number-and-score {
+    display: flex;
+    justify-content: space-between;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.question-number, .score {
+    font-family: 'Crimson Text', 'Times New Roman', Times, serif;
+    font-size: 1.6em;
+}
+
+.question-number {
+    width: 57%;
+    margin: 20px 0;
+    display: inline-block;
+}
+
+.score {
+    text-align: right;
+    width: 43%;
+    margin: 20px 0;
+    display: inline-block;
+}
+
+form {
+    background-color: #fefefe;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 500px;
+    margin-bottom: 30px;
+    width: 95%;
+}
+
+.right-wrong-answer-page {
+    align-items: center;
+}
+
+legend, .user-final-score {
+    font-family: 'Palanquin', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+    line-height: 1.25em;
+    margin: 10px 3px;
+    text-align: center;
+}
+
+.user-final-score {
+    font-size: 1.9em;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+fieldset {
+    border: none;
+    width: 95%;
+    height: 300px;
+    margin: 0;
+}
+
+hr {
+    border: 12px dotted #fdde66;
+    border-bottom: none;
+    width: 75%;
+}
+
+.container {
+    width: 305px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;    
+    justify-content: space-around;
+}
+
+.answers {
+    width: 89%;
+}
+
+.answers:hover {
+    background-color: #fdde66;
+}
+
+label {
+    font-family: 'Palanquin', Arial, Helvetica, sans-serif;
+    font-size: 1.45em;
+    line-height: 1em;
+    cursor: pointer;
+}
+
+.comment, .final-comment {
+    font-family: 'Palanquin', Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    line-height: 1.25em;
+    padding: 0 5px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.jack-o-lantern-pictures, .final-picture {
+    max-width: 270px;
+    border-radius: 10px;
+}
+
+/******Buttons******/
+button {
+    background-color: #fefefe;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Special Elite', Arial, Helvetica, sans-serif;
+    font-size: 2.5em;
+    margin: 20px;
+    padding-top: 5px;
+    padding-bottom: 0;
+    width: 200px;
+    height: 50px;
+}
+
+.start-button:hover {
+    background-color: #FCFF3D;
+    cursor: pointer;
+    transition-duration: 1s;
+}
+
+.submit-button, .next-button, .restart-button {
+    align-self: center;
+    background-color: #fdde66;
+    width: 200px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.submit-button:hover, .next-button:hover, .restart-button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition-duration: 1s;
+}
+
+.restart-button {
+    font-size: 1.5em;
+}
+
+/***Media Queries***/
+@media screen and (min-width: 375px) {
+    main {
+        width: 350px;
+    }
+
+    h1 {
+        font-size: 2.75em;
+    }
+
+    .quiz-description {
+        width: 95%;
+    }
+
+    .start-image {
+        max-width: 310px;
+    }
+
+    .question-number-and-score, form {
+        width: 90%
+    }
+}
+
+@media screen and (min-width: 426px) {
+    main {
+        width: 380px;
+    }
+
+    h1 {
+        font-size: 2.9em;
+    }
+
+    .start-image {
+        max-width: 330px;
+    }
+
+    .answers {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    main {
+        width: 450px;
+    }
+
+    h1 {
+        font-size: 3.5em;
+    }
+
+    .start-page-content {
+         width: 390px;
+    }
+
+    .quiz-description {
+        font-size: 1.6em;
+        text-align: center;
+    }
+
+    .start-image {
+        max-width: 370px;
+    }
+
+    .question-number, .score {
+        font-size: 2em;
+    }
+
+    legend, .user-final-score {
+        font-size: 1.9em;
+    }
+
+    label {
+        font-size: 1.8em;
+    }
+
+    .container {
+        width: 370px;
+    }
+
+    .comment, .final-comment {
+        font-size: 1.8em;
+    }
+
+    .jack-o-lantern-pictures, .final-picture {
+        max-width: 290px;
+        border-radius: 10px;
+    }
+
+    .restart-button {
+        width: 210px;
+        font-size: 2em;
+    }
+}
