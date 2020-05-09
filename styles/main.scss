@@ -1,0 +1,212 @@
+@import './config';
+@import './variables';
+
+@mixin flex($direction, $justify) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+}
+
+/***Header***/
+
+main {
+    background-color: $primary-color;
+    border: 5px solid $secondary-color;
+    border-radius: 10px;
+    width: 320px;
+    max-height: 950px;
+    @include flex(column, space-evenly);
+    align-items: center;
+    margin: 50px auto;
+}
+
+h1 {
+    font-family: $primary-font-style;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    width: 100%;
+}
+
+/*****Starting Page*****/
+
+.start-page-content {
+    height: 500px;
+    width: 320px;
+    @include flex(column, space-between);
+    align-items: center;
+}
+
+.quiz-description {
+    background-color: $third-color;
+    border-radius: 10px;
+    font-family: $secondary-font-style;
+    font-size: 1.35em;
+    font-weight: 600;
+    line-height: 30px;
+    margin: 20px 20px;
+    width: 300px;
+    padding: 0 10px 5px;
+}
+
+.start-image {
+    max-width: 290px;
+    border-radius: 10px;
+}
+
+/**Question Pages and Final Score Page**/
+.question-number-and-score {
+    @include flex(row, space-between);
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.question-number, 
+.score {
+    font-family: $primary-font-style;
+    font-size: 1.6em;
+}
+
+.question-number {
+    width: 57%;
+    margin: 20px 0;
+    display: inline-block;
+}
+
+.score {
+    text-align: right;
+    width: 43%;
+    margin: 20px 0;
+    display: inline-block;
+}
+
+form {
+    background-color: $third-color;
+    border-radius: 5px;
+    @include flex(column, space-around);
+    min-height: 500px;
+    margin-bottom: 30px;
+    width: 95%;
+}
+
+.right-wrong-answer-page {
+    align-items: center;
+}
+
+legend, 
+.user-final-score {
+    font-family: $secondary-font-style;
+    font-weight: 700;
+    font-size: 1.5em;
+    line-height: 1.25em;
+    margin: 10px 3px;
+    text-align: center;
+}
+
+.user-final-score {
+    font-size: 1.9em;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+fieldset {
+    border: none;
+    width: 95%;
+    height: 300px;
+    margin: 0;
+}
+
+hr {
+    border: 12px dotted $fourth-color;
+    border-bottom: none;
+    width: 75%;
+}
+
+.container {
+    width: 305px;
+    height: 280px;
+    @include flex(column, space-around);
+}
+
+.answers {
+    width: 89%;
+}
+
+.answers:hover {
+    background-color: $fourth-color;
+}
+
+label {
+    font-family: $secondary-font-style;
+    font-size: 1.45em;
+    line-height: 1em;
+    cursor: pointer;
+}
+
+.comment, 
+.final-comment {
+    font-family: $secondary-font-style;
+    font-size: 1.5em;
+    line-height: 1.25em;
+    padding: 0 5px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.ghost-pumpkin-pictures, 
+.final-picture {
+    max-width: 270px;
+    border-radius: 10px;
+}
+
+/******Buttons******/
+button {
+    border: none;
+    border-radius: 10px;
+    font-family: $button-font-style;
+    font-size: 2.5em;
+    margin: 20px;
+    padding-top: 5px;
+    padding-bottom: 0;
+    width: 200px;
+    height: 50px;
+}
+
+button:hover {
+    cursor: pointer;
+    transition-duration: 1s;
+}
+
+.start-button {
+    @include buttonColor($third-color, $secondary-color);
+}
+
+.start-button:hover {
+    @include buttonColor($fifth-color, $secondary-color);
+}
+
+.submit-button, 
+.next-button, 
+.restart-button {
+    align-self: center;
+    @include buttonColor($fourth-color, $secondary-color);
+    width: 200px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.restart-button {
+    font-size: 1.5em;
+}
+
+.submit-button:hover, 
+.next-button:hover, 
+.restart-button:hover {
+    @include buttonColor($secondary-color, $third-color);
+}
+
+@import './responsive';

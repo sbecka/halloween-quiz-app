@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../images/quiz-background.jpg');
+    background-size: 300px;
+    margin: 0;
+}
+
+header {
+    width: 98%;
+}
+
+img {
+    align-self: center;
+}
+
+@mixin buttonColor($background, $color) {
+    background-color: $background;
+    color: $color;
+}
+
+@mixin small-mobile-screen {
+    @media screen and (min-width: 375px) {
+        @content;
+    }
+}
+@mixin larger-mobile-screen {
+    @media screen and (min-width: 426px) {
+        @content;
+    }
+}
+@mixin large-screen {
+    @media screen and (min-width: 769px) {
+        @content;
+    }
+}
