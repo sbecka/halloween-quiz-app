@@ -133,11 +133,21 @@ hr {
 }
 
 .answers {
+    @include flex(row, space-around);
+    align-items: baseline;
     width: 89%;
-}
+    min-height: 30px;
 
-.answers:hover {
-    background-color: $fourth-color;
+    label {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        margin-left: 8px;
+    }
+
+    label:hover {
+        background-color: $fourth-color;
+    }
 }
 
 label {
